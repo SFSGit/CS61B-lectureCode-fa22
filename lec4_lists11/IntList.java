@@ -1,4 +1,4 @@
-package lec4_lists1;
+package lec4_lists11;
 
 
 public class IntList {
@@ -37,11 +37,24 @@ public class IntList {
 		return rest.get(i - 1);
 	}
 
+	public boolean contains(int i) {
+		if (first != i && rest == null) {
+			return false;
+		} else if (first == i) {
+			return true;
+		}
+		else {
+			return rest.contains(i);
+		}
+	}
+
 	public static void main(String[] args) {
 		IntList L = new IntList(15, null);
 		L = new IntList(10, L);
 		L = new IntList(5, L);
 
-		System.out.println(L.get(100));
+		System.out.println(L.get(1));
+		System.out.println(L.contains(100));
+		System.out.println(L.contains(10));
 	}
 } 
